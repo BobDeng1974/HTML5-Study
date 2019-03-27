@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>闪烁小球</title>
+	<style>
+		.ball {
+			margin: 200px auto;
+			width: 100px;
+			height: 100px;
+			background: red;
+			border: 1px solid red;
+			border-radius: 100%;
+			/* 统一设置name、duration、timing-function、delay、iteration-count、direction */
+			animation: blink 0.5s linear 0s infinite alternate;
+		}
+		@keyframes blink {
+			from {
+				opacity: 0;
+				transform: scale(1);
+			}
+			to {
+				opacity: 100%;
+				transform: scale(1.1);
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="ball"></div>
+</body>
+</html>

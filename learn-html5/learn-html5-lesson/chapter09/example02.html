@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>transition-duration属性</title>
+	<style type="text/css">
+		div {
+			width: 150px;
+			height: 150px;
+			margin: 0 auto;
+			background-color: yellow;
+			border: 2px solid #00f;
+			color: #000;
+		}
+		div:hover {
+			background-color: red;
+			/*指定动画过渡的CSS属性*/
+			-webkit-transition-property: background-color; /*Safari and Chrome浏览器兼容代码*/
+			-moz-transition-property: background-color; /*Firefox浏览器兼容代码*/
+			-o-transition-property: background-color; /*Opera浏览器兼容代码*/
+			/*指定动画过渡的时间*/
+			-webkit-transition-duration: 5s; /*Safari and Chrome浏览器兼容代码*/
+			-moz-transition-duration: 5s; /*Firefox浏览器兼容代码*/
+			-o-transition-duration: 5s; /*Opera浏览器兼容代码*/
+		}
+	</style>
+</head>
+<body>
+	<div>使用transition-duration属性设置过渡时间</div>
+</body>
+</html>

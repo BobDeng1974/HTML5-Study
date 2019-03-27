@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>box-sizing</title>
+	<style type="text/css">
+		.box1 {
+			width: 300px;
+			height: 100px;
+			padding-right: 10px;
+			background: #f90;
+			border: 10px solid #ccc;
+			box-sizing: content-box;
+		}
+		.box2 {
+			width: 300px;
+			height: 100px;
+			padding-right: 10px;
+			background: #f90;
+			border: 10px solid #ccc;
+			box-sizing: border-box;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1">content_box属性</div>
+	<div class="box2">border_box属性</div>
+</body>
+</html>

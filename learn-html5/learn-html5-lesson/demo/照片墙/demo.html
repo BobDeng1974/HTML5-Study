@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>照片墙</title>
+	<style>
+		.title {
+			text-align: center;
+		}
+		img {
+			width: 10%;
+		}
+		.image-wall .image {
+			position: fixed;
+			/*定位*/
+			/*bottom: 100px;*/
+			/*left: 300px;*/
+			/*填充*/
+			padding: 2px 2px;
+			background: white;
+			/*边框*/
+			border: 2px solid white;
+			/*边框阴影*/
+			box-shadow: 2px 2px 3px dodgerblue;
+			/*!*方位变换*!*/
+			/*transform: rotate(15deg);*/
+			/*!*深度*!*/
+			/*z-index: 9;*/
+			/*过渡*/
+			transition: all 0.5s ease-in 0s;
+		}
+
+		.image-wall .image:nth-of-type(1) {
+			bottom: 100px;
+			left: 300px;
+			transform: rotate(15deg);
+			z-index: 1;
+		}
+		.image-wall .image:nth-of-type(2) {
+			bottom: 100px;
+			left: 450px;
+			transform: rotate(20deg);
+			z-index: 2;
+		}
+		.image-wall .image:nth-of-type(3) {
+			bottom: 100px;
+			left: 600px;
+			transform: rotate(5deg);
+			z-index: 3;
+		}
+		.image-wall .image:nth-of-type(4) {
+			bottom: 100px;
+			left: 750px;
+			transform: rotate(30deg);
+			z-index: 4;
+		}
+		.image-wall .image:nth-of-type(5) {
+			bottom: 300px;
+			left: 300px;
+			transform: rotate(45deg);
+			z-index: 5;
+		}
+		.image-wall .image:nth-of-type(6) {
+			bottom: 300px;
+			left: 450px;
+			transform: rotate(-15deg);
+			z-index: 6;
+		}
+		.image-wall .image:nth-of-type(7) {
+			bottom: 300px;
+			left: 600px;
+			transform: rotate(10deg);
+			z-index: 7;
+		}
+		.image-wall .image:nth-of-type(8) {
+			bottom: 300px;
+			left: 750px;
+			transform: rotate(-20deg);
+			z-index: 8;
+		}
+		.image-wall .image:nth-of-type(9) {
+			bottom: 100px;
+			left: 900px;
+			transform: rotate(-30deg);
+			z-index: 9;
+		}
+		.image-wall .image:nth-of-type(10) {
+			bottom: 300px;
+			left: 900px;
+			transform: rotate(25deg);
+			z-index: 10;
+		}
+
+		.image-wall .image:hover {
+			box-shadow: 6px 6px 9px dodgerblue;
+			transform: rotate(0deg) scale(1.1);
+		}
+	</style>
+</head>
+<body>
+	<!--
+		box-shadow 给元素边框添加阴影效果
+		position 定位元素
+		rotation 旋转元素
+		z-index 设置元素的层级
+		transition 设置元素的某一属性的过渡效果
+		animation 给元素添加动画
+	-->
+	<h1 class="title">
+		卡片展示
+	</h1>
+	<div class="image-wall">
+		<img class="image" src="images/1.jpg" alt="光道"/>
+		<img class="image" src="images/2.png" alt="光道"/>
+		<img class="image" src="images/3.jpg" alt="光道"/>
+		<img class="image" src="images/4.jpg" alt="光道"/>
+		<img class="image" src="images/5.jpg" alt="光道"/>
+		<img class="image" src="images/6.jpg" alt="光道"/>
+		<img class="image" src="images/7.jpg" alt="光道"/>
+		<img class="image" src="images/8.jpg" alt="光道"/>
+		<img class="image" src="images/9.jpg" alt="光道"/>
+		<img class="image" src="images/10.jpg" alt="光道"/>
+	</div>
+
+</body>
+</html>

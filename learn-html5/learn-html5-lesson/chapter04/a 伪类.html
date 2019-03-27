@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>链接伪类</title>
+</head>
+<body>
+	<style type="text/css">
+		a:link, a:visited { /*未访问和访问后*/
+			color: pink;
+			text-decoration: none; /*清除超链接默认的下划线*/
+		}
+		a:hover { /*鼠标悬停*/
+			color: blue;
+			text-decoration: underline; /*鼠标悬停时出现下划线*/
+		}
+		a:active { color: #f00;}
+		/*鼠标点击不动*/
+	</style>
+	</head>
+	<body>
+		<a href="#">公司首页</a>
+		<a href="#">公司简介</a>
+		<a href="#">产品介绍</a>
+		<a href="#">联系我们</a>
+	</body>
+</html>

@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>transition-timing-function属性</title>
+	<style type="text/css">
+		div {
+			width: 200px;
+			height: 200px;
+			margin: 0 auto;
+			background-color: yellow;
+			border: 5px solid red;
+			border-radius: 0px;
+		}
+		div:hover {
+			border-radius: 105px;
+			/*指定动画过渡的CSS属性*/
+			-webkit-transition-property: border-radius; /*Safari and Chrome浏览器兼容代码*/
+			-moz-transition-propertyborder-radius; /*Firefox浏览器兼容代码*/
+			-o-transition-property: border-radius; /*Opera浏览器兼容代码*/
+			/*指定动画过渡的时间*/
+			-webkit-transition-duration: 5s; /*Safari and Chrome浏览器兼容代码*/
+			-moz-transition-duration: 5s; /*Firefox浏览器兼容代码*/
+			-o-transition-duration: 5s; /*Opera浏览器兼容代码*/
+			/*指定动画过以慢速开始和结束的过渡效果*/
+			-webkit-transition-timing-function: ease-in-out; /*Safari and Chrome浏览器兼容代码*/
+			-moz-transition-timing-function: ease-in-out; /*Firefox浏览器兼容代码*/
+			-o-transition-timing-function: ease-in-out; /*Opera浏览器兼容代码*/
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

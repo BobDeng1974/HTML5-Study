@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>translate3D（）方法</title>
+	<style type="text/css">
+		div {
+			width: 200px;
+			height: 200px;
+			margin: 50px auto;
+			border: 5px solid #000;
+			position: relative;
+			perspective: 50000px; /*规定3D元素的透视效果*/
+			-ms-perspective: 50000px; /* IE9浏览器兼容代码 */
+			-webkit-perspective:: 50000px; /* Safari and Chrome浏览器兼容代码 */
+			-moz-perspective:: 50000px; /* Firefox览器兼容代码*/
+			-o-perspective:: 50000px; /*Opera浏览器兼容代码*/
+			transform-style: preserve-3d; /*规定被嵌套元素如何在3D空间中显示*/
+			-ms-transform-style: preserve-3d; /* IE9浏览器兼容代码 */
+			-webkit-transform-style: preserve-3d; /* Safari and Chrome浏览器兼容代码 */
+			-moz-transform-style: preserve-3d; /* Firefox览器兼容代码*/
+			-o-transform-style: preserve-3d; /*Opera浏览器兼容代码*/
+			transition: all 1s ease 0s; /*设置过渡效果*/
+			-webkit-transition: all 1s ease 0s; /*Safari and Chrome浏览器兼容代码*/
+			-moz-transition: all 1s ease 0s; /*Firefox浏览器兼容代码*/
+			-o-transition: all 1s ease 0s; /*Opera浏览器兼容代码*/
+		}
+		div:hover {
+			transform: rotateX(-90deg); /* 设置旋转轴*/
+			-ms-transform: rotateX(-90deg); /* IE9浏览器兼容代码 */
+			-webkit-transform: rotateX(-90deg); /* Safari and Chrome浏览器兼容代码 */
+			-moz-transform: rotateX(-90deg); /* Firefox览器兼容代码*/
+			-o-transform: rotateX(-90deg); /*Opera浏览器兼容代码*/
+		}
+		div img {
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		div img.no1 {
+			transform: translateZ(100px); /* 设置旋转轴*/
+			-ms-transform: rotateZ(100px); /* IE9浏览器兼容代码 */
+			-webkit-transform: rotateZ(100px); /* Safari and Chrome浏览器兼容代码 */
+			-moz-transform: rotateZ(100px); /* Firefox览器兼容代码*/
+			-o-transform: rotateZ(100px); /*Opera浏览器兼容代码*/
+			z-index: 2;
+		}
+		div img.no2 {
+			transform: rotateX(90deg) translateZ(100px); /* 设置旋转轴*/
+			-ms-transform: rotateX(90deg) translateZ(100px); /* IE9浏览器兼容代码 */
+			-webkit-transform: rotateX(90deg) translateZ(100px); /* Safari and Chrome浏览器兼容代码 */
+			-moz-transform: rotateX(90deg) translateZ(100px); /* Firefox览器兼容代码*/
+			-o-transform: rotateX(90deg) translateZ(100px); /*Opera浏览器兼容代码*/
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<img class="no1" src="images/1.png" alt="1">
+		<img class="no2" src="images/2.png" alt="2">
+	</div>
+</body>
+</html>
