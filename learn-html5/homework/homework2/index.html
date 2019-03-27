@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>导航跟随的示例</title>
+	<style>
+		.image {
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			margin: -185px 0 0 -125px;
+			width: 250px;
+			height: 371px;
+			background: url("./images/image.png") center top no-repeat;
+		}
+		.image-box {
+			position: absolute;
+			top: 5%;
+			left: 50%;
+			margin: 0 0 0 -100px;
+			width: 200px;
+			height: 200px;
+			cursor: pointer;
+			z-index: 1;
+		}
+		.top-sale {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 80px;
+			height: 30px;
+			background: url("./images/top-sale.gif") center top no-repeat;
+			z-index: 0;
+		}
+		.see {
+			position: absolute;
+			top: 70%;
+			left: 75%;
+			width: 60px;
+			height: 54px;
+			background: url("./images/see.jpg") center top no-repeat;
+			cursor: pointer;
+			z-index: 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="image">
+		<div class="image-box" onclick="alert('这是图片')"></div>
+		<div class="top-sale"></div>
+		<div class="see" onclick="alert('看了')"></div>
+	</div>
+</body>
+</html>
