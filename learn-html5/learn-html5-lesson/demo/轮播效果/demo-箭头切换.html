@@ -27,19 +27,6 @@
 			var prev = document.getElementById('prev');
 			var next = document.getElementById('next');
 
-			var index = 1;
-
-			function showButton() {
-				for(var i = 0; i < buttons.length; i++) {
-					if(buttons[i].className == 'on') {
-						buttons[i].className = '';
-						break;
-					}
-				}
-				buttons[index - 1].className = 'on';
-			}
-
-
 			function animate(offset) {
 				var newLeft = parseInt(list.style.left) + offset;
 				list.style.left = newLeft + 'px';
@@ -54,37 +41,13 @@
 			}
 
 			next.onclick = function() {
-				if(index == 5) {
-					index = 1;
-				} else {
-					index += 1;
-				}
 				animate(-600);
-				showButton();
 			};
-
 			prev.onclick = function() {
-				if(index == 1) {
-					index = 5;
-				} else {
-					index -= 1;
-				}
-				animate(600);
-				showButton();
-			};
-
-
-			for(var i = 0; i < buttons.length; i++) {
-				buttons[i].onclick = function() {
-					if(this.className == 'on')
-						return;
-					var myIndex = parseInt(this.getAttribute('index'));
-					var offset = -600 * (myIndex - index);
-					index = myIndex;
-					animate(offset);
-					showButton();
-				}
+				animate(-600);
 			}
+
+
 		}
 
 	</script>
@@ -93,13 +56,13 @@
 
 	<div id="container">
 		<div id="list" style="left: -600px;">
-			<img src="img/5.jpg" alt="1"/>
-			<img src="img/1.jpg" alt="1"/>
-			<img src="img/2.jpg" alt="2"/>
-			<img src="img/3.jpg" alt="3"/>
-			<img src="img/4.jpg" alt="4"/>
-			<img src="img/5.jpg" alt="5"/>
-			<img src="img/1.jpg" alt="5"/>
+			<img src="../images/5.jpg" alt="1"/>
+			<img src="../images/1.jpg" alt="1"/>
+			<img src="../images/2.jpg" alt="2"/>
+			<img src="../images/3.jpg" alt="3"/>
+			<img src="../images/4.jpg" alt="4"/>
+			<img src="../images/5.jpg" alt="5"/>
+			<img src="../images/1.jpg" alt="5"/>
 		</div>
 		<div id="buttons">
 			<span index="1" class="on"></span>

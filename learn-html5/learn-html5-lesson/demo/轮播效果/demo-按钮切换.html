@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>query焦点轮播图</title>
+	<title>焦点轮播图</title>
 	<style type="text/css">
 		* { margin: 0; padding: 0; text-decoration: none;}
 		body { padding: 20px;}
@@ -18,57 +18,42 @@
 		#prev { left: 20px;}
 		#next { right: 20px;}
 	</style>
-	<script type="text/javascript" src="js/jquery.1.10.2.js"></script>
 	<script type="text/javascript">
 
-		$(function() {
-			var container = $('#container');
-			var list = $('#list');
-			var buttons = $('#buttons span');
-			var prev = $('#prev');
-			var next = $('#next');
+		window.onload = function() {
+			var container = document.getElementById('container');
+			var list = document.getElementById('list');
+			var buttons = document.getElementById('buttons').getElementsByTagName('span');
+			var prev = document.getElementById('prev');
+			var next = document.getElementById('next');
+
 			var index = 1;
-			var len = 5;
-			var interval = 3000;
-			var timer;
+
+			function showButton() {
+				for(var i = 0; i < buttons.length; i++) {
+					if(buttons[i].className == 'on') {
+						buttons[i].className = '';
+						break;
+					}
+				}
+				buttons[index - 1].className = 'on';
+			}
 
 
 			function animate(offset) {
-				var left = parseInt(list.css('left')) + offset;
-				if(offset > 0) {
-					offset = '+=' + offset;
-				} else {
-					offset = '-=' + Math.abs(offset);
+				var newLeft = parseInt(list.style.left) + offset;
+				list.style.left = newLeft + 'px';
+				if(newLeft > -600) {
+					list.style.left = -3000 + 'px';
 				}
-				list.animate({'left': offset}, 300, function() {
-					if(left > -200) {
-						list.css('left', -600 * len);
-					}
-					if(left < (-600 * len)) {
-						list.css('left', -600);
-					}
-				});
-			}
-
-			function showButton() {
-				buttons.eq(index - 1).addClass('on').siblings().removeClass('on');
-			}
-
-			function play() {
-				timer = setTimeout(function() {
-					next.trigger('click');
-					play();
-				}, interval);
-			}
-
-			function stop() {
-				clearTimeout(timer);
-			}
-
-			next.bind('click', function() {
-				if(list.is(':animated')) {
-					return;
+				if(newLeft < -3000) {
+					list.style.left = -600 + 'px';
 				}
+
+
+			}
+
+			next.onclick = function() {
 				if(index == 5) {
 					index = 1;
 				} else {
@@ -76,12 +61,9 @@
 				}
 				animate(-600);
 				showButton();
-			});
+			};
 
-			prev.bind('click', function() {
-				if(list.is(':animated')) {
-					return;
-				}
+			prev.onclick = function() {
 				if(index == 1) {
 					index = 5;
 				} else {
@@ -89,40 +71,35 @@
 				}
 				animate(600);
 				showButton();
-			});
+			};
 
-			buttons.each(function() {
-				$(this).bind('click', function() {
-					if(list.is(':animated') || $(this).attr('class') == 'on') {
+
+			for(var i = 0; i < buttons.length; i++) {
+				buttons[i].onclick = function() {
+					if(this.className == 'on')
 						return;
-					}
-					var myIndex = parseInt($(this).attr('index'));
+					var myIndex = parseInt(this.getAttribute('index'));
 					var offset = -600 * (myIndex - index);
-
-					animate(offset);
 					index = myIndex;
+					animate(offset);
 					showButton();
-				})
-			});
+				}
+			}
+		}
 
-			container.hover(stop, play);
-
-			play();
-
-		});
 	</script>
 </head>
 <body>
 
 	<div id="container">
 		<div id="list" style="left: -600px;">
-			<img src="img/5.jpg" alt="1"/>
-			<img src="img/1.jpg" alt="1"/>
-			<img src="img/2.jpg" alt="2"/>
-			<img src="img/3.jpg" alt="3"/>
-			<img src="img/4.jpg" alt="4"/>
-			<img src="img/5.jpg" alt="5"/>
-			<img src="img/1.jpg" alt="5"/>
+			<img src="../images/5.jpg" alt="1"/>
+			<img src="../images/1.jpg" alt="1"/>
+			<img src="../images/2.jpg" alt="2"/>
+			<img src="../images/3.jpg" alt="3"/>
+			<img src="../images/4.jpg" alt="4"/>
+			<img src="../images/5.jpg" alt="5"/>
+			<img src="../images/1.jpg" alt="5"/>
 		</div>
 		<div id="buttons">
 			<span index="1" class="on"></span>
