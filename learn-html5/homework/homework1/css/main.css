@@ -7,31 +7,31 @@
 	padding: 1.5em 3em;
 }
 .demo-header {
-	border: 1px solid black;
 	padding: 2em 6em;
+	border: 1px solid black;
 	background-color: whitesmoke;
 
 }
 /*头部元素*/
 .demo-nav-title {
+	font-size: 1.5em;
+	font-weight: bold;
 	display: inline-block;
 	width: 20%;
-	font-weight: bold;
-	font-size: 1.5em;
 }
 .demo-nav-group {
+	font-size: 1.2em;
+	font-weight: bold;
 	display: inline-block;
 	width: 60%;
-	font-weight: bold;
-	font-size: 1.2em;
 }
 .demo-nav-group a {
 	margin: 0.25em 0.5em;
 }
 
 .demo-body {
-	border: 1px solid black;
 	padding: 1em 2em;
+	border: 1px solid black;
 	background-color: whitesmoke;
 }
 /*主体元素*/
@@ -54,27 +54,27 @@
 }
 .demo-body-div-group div img {
 	/*居中对齐*/
+	line-height: 80%;
 	margin: 0.5em auto;
 	padding: 0.25em 0.25em;
 	border: 1px groove grey;
 	border-radius: 10%;
-	line-height: 80%;
 }
 .demo-body-content {
 	border: 1px solid slategrey;
 }
 .demo-body-content-section-left {
 	display: inline-block;
-	height: 90%;
 	width: 60%;
+	height: 90%;
 }
 .demo-body-content-section-left article {
 	margin: 0.5em 0.5em;
 }
 .demo-body-content-section-right {
 	display: inline-block;
-	height: 90%;
 	width: 38%;
+	height: 90%;
 }
 .demo-body-content-section-right aside {
 	margin: 0.5em 0.5em;
@@ -82,8 +82,8 @@
 }
 
 .demo-footer {
-	border: 1px solid black;
 	padding: 1em 2em;
+	border: 1px solid black;
 	background-color: whitesmoke;
 }
 /*尾部元素*/
@@ -92,15 +92,15 @@
 	width: 100%;
 }
 .demo-foot-dl-group {
-	border: 1px solid slategrey;
-	margin: 0.5em 0.5em;
 	display: table-cell;
 	width: 20%;
+	margin: 0.5em 0.5em;
+	border: 1px solid slategrey;
 }
 .demo-footer-address {
-	border: 1px solid slategrey;
-	margin: 0.5em 0.5em;
-	padding: 0 2em;
 	display: table-cell;
 	width: 20%;
+	margin: 0.5em 0.5em;
+	padding: 0 2em;
+	border: 1px solid slategrey;
 }

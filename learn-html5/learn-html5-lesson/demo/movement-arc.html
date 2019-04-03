@@ -10,13 +10,11 @@
 			background: #111;
 			text-align: center;
 		}
-
 		h1 {
 			font-size: 14px;
-			font-family: "Microsoft Yahei";
+			font-family: "Microsoft Yahei", sans-serif;
 			text-align: center;
 		}
-
 		.stage {
 			width: 120px;
 			height: auto;
@@ -30,12 +28,10 @@
 			/* 前两者必须是动画名、持续时间 */
 			animation: sway 2.2s alternate infinite ease-in-out;
 		}
-
 		.watch {
 			width: 100%;
 			height: auto;
 		}
-
 		.seconds {
 			position: absolute;
 			width: 8%;
@@ -45,13 +41,11 @@
 			transform-origin: center 72.4%;
 			animation: second 60s infinite linear;
 		}
-
 		@keyframes second {
 			to {
 				-webkit-transform: rotate(355deg);
 			}
 		}
-
 		@keyframes sway {
 			to {
 				-webkit-transform: rotate(30deg);
@@ -63,9 +57,8 @@
 <body>
 	<h1>请使用webkit内核标准浏览器查看效果</h1>
 	<div class="stage">
-		<img src="http://p0.qhimg.com/t0197c451833414523e.png" alt="钟表" class="watch"/>
-		<img src="http://p9.qhimg.com/t0145f1ae8ad6753b05.png" alt="秒针" class="seconds">
+		<img class="watch" src="http://p0.qhimg.com/t0197c451833414523e.png" alt="钟表"/>
+		<img class="seconds" src="http://p9.qhimg.com/t0145f1ae8ad6753b05.png" alt="秒针">
 	</div>
 </body>
-
 </html>

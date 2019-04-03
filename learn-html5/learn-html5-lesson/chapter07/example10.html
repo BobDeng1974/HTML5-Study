@@ -6,11 +6,11 @@
 </head>
 <body>
 	<form action="#" method="get">
-		请输入网址：<input type="url" list="url_list" name="weburl"/>
+		请输入网址：<input type="url" name="weburl" list="url_list"/>
 		<datalist id="url_list">
-			<option label="新浪" value="http://www.sina.com.cn"></option>
-			<option label="搜狐" value="http://www.sohu.com"></option>
-			<option label="传智" value="http://www.itcast.cn/"></option>
+			<option value="http://www.sina.com.cn" label="新浪"></option>
+			<option value="http://www.sohu.com" label="搜狐"></option>
+			<option value="http://www.itcast.cn/" label="传智"></option>
 		</datalist>
 		<input type="submit" value="提交"/>
 	</form>

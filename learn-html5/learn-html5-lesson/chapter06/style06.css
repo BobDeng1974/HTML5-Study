@@ -1,61 +1,70 @@
 @charset "utf-8";
 /* CSS Document */
 /*重置浏览器的默认样式*/
-* {margin: 0; padding: 0; border: 0; list-style: none;}
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	border: 0;
+}
 /*全局控制*/
-a {text-decoration: none; font-size: 30px;color: #fff;}
+a {
+	font-size: 30px;
+	text-decoration: none;
+	color: #fff;
+}
 div { /*整体控制页面*/
+	position: relative; /*设置相对定位*/
 	width: 580px;
 	height: 200px;
 	margin: 50px auto;
-	position: relative; /*设置相对定位*/
 }
 a { /*整体控制左右两边的切换按钮*/
+	line-height: 90px;
+	display: none; /*把a元素隐藏起来*/
 	float: left;
 	width: 25px;
 	height: 90px;
-	line-height: 90px;
-	background: #333;
-	opacity: 0.7; /*设置元素的透明度*/
-	text-align: center;
-	border-radius: 4px;
-	display: none; /*把a元素隐藏起来*/
 	cursor: pointer; /*把鼠标指针变成小手的形状*/
+	text-align: center;
+	opacity: 0.7; /*设置元素的透明度*/
+	border-radius: 4px;
+	background: #333;
 }
 .left { /*控制左边切换按钮的位置*/
 	position: absolute;
-	left: -12px;
 	top: 60px;
+	left: -12px;
 }
 .right { /*控制右边切换按钮的位置*/
 	position: absolute;
-	right: -12px;
 	top: 60px;
+	right: -12px;
 }
 div:hover a { /*设置鼠标移上时切换按钮的状态*/
 	display: block;
 }
 ul { /*整体控制焦点图的切换图标模块*/
-	width: 110px;
-	height: 20px;
-	background: #333;
-	opacity: 1;
-	border-radius: 8px;
 	position: absolute;
 	right: 30px;
 	bottom: 20px;
+	width: 110px;
+	height: 20px;
 	text-align: center;
+	opacity: 1;
+	border-radius: 8px;
+	background: #333;
 }
 li { /*控制每个切换小图标*/
+	display: inline-block;
 	width: 5px;
 	height: 5px;
-	background: #ccc;
 	border-radius: 50%;
-	display: inline-block;
+	background: #ccc;
 }
 .max { /*单独控制第一个切换小图标*/
 	width: 12px;
-	background: #03bde4;
 	border-radius: 6px;
+	background: #03bde4;
 }
 
