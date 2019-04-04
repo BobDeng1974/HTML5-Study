@@ -87,6 +87,7 @@
 			const $prev = $('#prev');
 			const $next = $('#next');
 
+			//可以作为全局变量
 			let index = 1;
 			const len = 5;
 			const interval = 3000;
@@ -112,10 +113,12 @@
 				});
 			}
 
+			//根据索引值显示下一个按钮
 			function showButton() {
 				$buttons_span.eq(index - 1).addClass('on').siblings().removeClass('on');
 			}
 
+			//定时播放
 			function play() {
 				timer = setTimeout(function() {
 					$next.trigger('click');
@@ -127,6 +130,15 @@
 				clearTimeout(timer);
 			}
 
+			//对于上一个和下一个按钮，绑定点击事件
+			$prev.bind('click', function() {
+				if($list.is(':animated')) {
+					return;
+				}
+				index = index % 5 - 1;
+				animate(600);
+				showButton();
+			});
 			$next.bind('click', function() {
 				if($list.is(':animated')) {
 					return;
@@ -136,21 +148,13 @@
 				showButton();
 			});
 
-			$prev.bind('click', function() {
-				if($list.is(':animated')) {
-					return;
-				}
-				index = index % 5 - 1;
-				animate(600);
-				showButton();
-			});
-
+			//对于每个按钮，绑定点击事件
 			$buttons_span.each(function() {
 				$(this).bind('click', function() {
 					if($list.is(':animated') || $(this).attr('class') === 'on') {
 						return;
 					}
-					const myIndex = parseInt($(this).attr('index'));
+					const myIndex = $buttons_span.index($(this)) + 1;
 					const offset = -600 * (myIndex - index);
 					animate(offset);
 					index = myIndex;
@@ -186,6 +190,5 @@
 		<a class="arrow" id="prev" href="javascript:">&lt;</a>
 		<a class="arrow" id="next" href="javascript:">&gt;</a>
 	</div>
-
 </body>
 </html>
