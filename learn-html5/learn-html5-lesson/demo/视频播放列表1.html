@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>制作视频播放列表</title>
+	<style>
+		body {
+			font-family: "微软雅黑", sans-serif;
+			font-size: 16px;
+		}
+		#container {
+			width: 100%;
+			height: 540px;
+			margin: 50px auto 0;
+			background: black;
+			position: relative;
+		}
+		#left {
+			width: 75%;
+			height: 93%;
+			position: absolute;
+			left: 35px;
+			top: 10px;
+		}
+		video {
+			width: 80%;
+			height: 100%;
+		}
+		#right {
+			height: 93%;
+			position: absolute;
+			right: 35px;
+			top: 20px;
+		}
+		li {
+			list-style: none;
+			margin-top: -16px;
+			margin-bottom: 36px;
+			cursor: pointer;
+		}
+		img {
+			width: 260px;
+			height: 150px;
+			margin-right: 20px;
+			opacity: 1;
+		}
+		p {
+			width: 150px;
+			margin-top: 5px;
+			float: right;
+			color: white;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<div id="left">
+			<video id="myVideo" controls="controls" poster="#">
+				<source src="#" type="video/mp4"/>
+			</video>
+		</div>
+		<div id="right">
+			<ul>
+				<li>
+					<img src="#" id="img1" class="img" alt="" style="opacity: 1;" onclick="setVideo(this.id);">
+					<p class="p" style="color: green;">速度与激情7</p>
+				</li>
+				<li>
+					<img src="#" id="img2" alt="" class="img" onclick="setVideo(this.id);">
+					<p class="p">速度与激情5</p>
+				</li>
+				<li>
+					<img src="#" id="img3" alt="" class="img" onclick="setVideo(this.id);">
+					<p class="p">速度与激情4</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+	<script>
+		const myVideo = document.getElementById("myVideo");
+
+		function setVideo(id) {
+			const img = document.getElementById(id);
+			let p, ps, imgs;
+			ps = document.getElementsByClassName('p');
+			imgs = document.getElementsByClassName('img');
+			for(let i = 0; i < ps.length; i++) {
+				ps[i].style.color = "white";
+				imgs[i].style.opacity = "0.8";
+			}
+			img.style.opacity = "1";
+			switch(id) {
+				case 'img1':
+					myVideo.src = "img/Slow Motion_ Dog.mp4";
+					myVideo.poster = "";
+					myVideo.play();
+					p = document.getElementsByTagName('p')[0];
+					p.style.color = "green";
+					break;
+				case 'img2':
+					myVideo.src = "img/Dog Resting.mp4";
+					myVideo.poster = "";
+					myVideo.play();
+					p = document.getElementsByTagName('p')[1];
+					p.style.color = "green";
+					break;
+				case 'img3':
+					myVideo.src = "img/Milky.mp4";
+					myVideo.poster = "";
+					myVideo.play();
+					p = document.getElementsByTagName('p')[2];
+					p.style.color = "green";
+					break;
+			}
+		}
+	</script>
+</body>
+</html>
+

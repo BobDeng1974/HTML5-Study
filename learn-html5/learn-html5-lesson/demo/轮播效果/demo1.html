@@ -19,16 +19,16 @@
 			overflow: hidden;
 			position: relative;
 		}
-		#list {
+		#image-list {
 			width: 4200px;
 			height: 400px;
 			position: absolute;
 			z-index: 1;
 		}
-		#list img {
+		#image-list img {
 			float: left;
 		}
-		#buttons {
+		#button-list {
 			position: absolute;
 			height: 10px;
 			width: 100px;
@@ -36,7 +36,7 @@
 			bottom: 20px;
 			left: 250px;
 		}
-		#buttons span {
+		#button-list span {
 			cursor: pointer;
 			float: left;
 			border: 1px solid #fff;
@@ -46,7 +46,7 @@
 			background: #333;
 			margin-right: 5px;
 		}
-		#buttons .on {
+		#button-list .on {
 			background: orangered;
 		}
 		.arrow {
@@ -81,7 +81,7 @@
 </head>
 <body>
 	<div id="container">
-		<div id="list" style="left: -600px;">
+		<div id="image-list" style="left: -600px;">
 			<img src="images/5.jpg" alt="1"/>
 			<img src="images/1.jpg" alt="1"/>
 			<img src="images/2.jpg" alt="2"/>
@@ -90,12 +90,12 @@
 			<img src="images/5.jpg" alt="5"/>
 			<img src="images/1.jpg" alt="5"/>
 		</div>
-		<div id="buttons">
-			<span class="on" index="1"></span>
-			<span index="2"></span>
-			<span index="3"></span>
-			<span index="4"></span>
-			<span index="5"></span>
+		<div id="button-list">
+			<span class="on"></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
 		</div>
 		<a class="arrow" id="prev" href="javascript:">&lt;</a>
 		<a class="arrow" id="next" href="javascript:">&gt;</a>
