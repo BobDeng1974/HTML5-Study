@@ -106,7 +106,7 @@
 					if(left > -200) {
 						$list.css('left', -600 * len);
 					}
-					//到达最右边时，向右移动列表，使之显示第二个图片
+					//到达最右边时，向右移动列表，使之显示第二张图片
 					if(left < (-600 * len)) {
 						$list.css('left', -600);
 					}
@@ -131,7 +131,7 @@
 			}
 
 			//对于上一个和下一个按钮，绑定点击事件
-			$prev.bind('click', function() {
+			$prev.on('click', function() {
 				if($list.is(':animated')) {
 					return;
 				}
@@ -139,7 +139,7 @@
 				animate(600);
 				showButton();
 			});
-			$next.bind('click', function() {
+			$next.on('click', function() {
 				if($list.is(':animated')) {
 					return;
 				}
@@ -150,8 +150,9 @@
 
 			//对于每个按钮，绑定点击事件
 			$buttons_span.each(function() {
-				$(this).bind('click', function() {
-					if($list.is(':animated') || $(this).attr('class') === 'on') {
+				$(this).on('click', function() {
+					//尽量使用$elem.prop()，而非$elem.attr()，attr是只在初始化时才有用的
+					if($list.is(':animated') || $(this).prop('class') === 'on') {
 						return;
 					}
 					const myIndex = $buttons_span.index($(this)) + 1;

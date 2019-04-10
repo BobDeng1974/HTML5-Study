@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>制作视频播放列表</title>
+	<style>
+		body {
+			font-family: "微软雅黑", sans-serif;
+			font-size: 16px;
+		}
+		.container {
+			width: 100%;
+			height: 540px;
+			margin: 50px auto;
+			background: grey;
+			position: relative;
+		}
+		.left-container {
+			width: 60%;
+			height: 94%;
+			position: absolute;
+			left: 30px;
+			top: 30px;
+			bottom: 30px;
+		}
+		.right-container {
+			height: 94%;
+			position: absolute;
+			right: 30px;
+			top: 30px;
+			bottom: 30px;
+		}
+		.left-panel {
+			margin: 10px;
+			cursor: pointer;
+			width: 100%;
+			height: 100%;
+		}
+		.right-panel {
+			margin: 10px;
+			cursor: pointer;
+		}
+		.video {
+			width: 100%;
+			height: 95%;
+		}
+		.image {
+			width: 260px;
+			height: 150px;
+			margin-right: 20px;
+			opacity: 1;
+		}
+		.title {
+			width: 150px;
+			margin-top: 5px;
+			float: right;
+			color: white;
+		}
+		.on {
+			opacity: 0.8;
+			color: deepskyblue;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="left-container">
+			<div class="left-panel">
+				<!--<video class="video" controls="controls" poster="images/小电视.png">-->
+				<!--	无法播放此视频-->
+				<!--</video>-->
+				<!--Bilibili的视频需要通过iframe引用-->
+				<iframe class="video" src="images/小电视.png" title=""></iframe>
+			</div>
+		</div>
+		<div class="right-container">
+			<div class="right-panel">
+				<img src="images/image1.jpg" class="image" onclick="setVideo(this);">
+				<p class="title on">什么是波？什么是波的干涉？李永乐老师讲神奇的驻波实验！</p>
+			</div>
+			<div class="right-panel">
+				<img src="images/image2.jpg" class="image" onclick="setVideo(this);">
+				<p class="title">光是波还是粒子？双缝干涉实验和泊松亮斑都是怎么回事？李永乐老师讲波粒战争</p>
+			</div>
+			<div class="right-panel">
+				<img src="images/image3.jpg" class="image" onclick="setVideo(this);">
+				<p class="title">光子是什么？爱因斯坦为啥得诺贝尔奖？李永乐老师讲光电效应实验</p>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+	<script>
+		let $video = $(".video");
+
+		function setVideo(elem) {
+			let $image = $(elem);
+			let $images = $(".image");
+			let $titles = $(".title");
+
+			const index = $images.index($image);
+			console.log("index:" + index);
+			switch(index) {
+				case 0:
+					$video.prop("src", "//player.bilibili.com/player.html?aid=43117270&cid=75597538&page=1");
+					$video.on("play");
+					$titles.removeClass("on").eq(index).addClass("on");
+					break;
+				case 1:
+					$video.prop("src", "//player.bilibili.com/player.html?aid=43318293&cid=75933041&page=1");
+					$video.on("play");
+					$titles.removeClass("on").eq(index).addClass("on");
+					break;
+				case 2:
+					$video.prop("src", "//player.bilibili.com/player.html?aid=46915937&cid=82174625&page=1");
+					$video.on("play");
+					$titles.removeClass("on").eq(index).addClass("on");
+					break;
+			}
+		}
+	</script>
+</body>
+</html>
+
