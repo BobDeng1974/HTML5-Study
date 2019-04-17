@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>绘制一个箭头</title>
+	<link rel="stylesheet" href="css/style.css"/>
+	<script>
+		function draw() {
+			const canvas = document.getElementById("canvas");
+			canvas.width = 1000;
+			canvas.height = 1000;
+			const context = canvas.getContext("2d");
+
+			context.moveTo(100, 350);
+			context.lineTo(500, 350);
+			context.lineTo(500, 200);
+			context.lineTo(700, 400);
+			context.lineTo(500, 600);
+			context.lineTo(500, 450);
+			context.lineTo(100, 450);
+
+			context.lineWidth = 20;
+			context.fillStyle = "red";
+			context.fill();
+			context.strokeStyle = "blue";
+			context.stroke();
+		}
+	</script>
+</head>
+<body onload="draw()">
+	<canvas id="canvas"></canvas>
+</body>
+</html>

@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>文字效果</title>
+	<link rel="stylesheet" href="css/style.css"/>
+	<script>
+		function draw() {
+			const canvas = document.getElementById("canvas");
+			canvas.width = 800;
+			canvas.height = 800;
+			const context = canvas.getContext("2d");
+
+			const linearGrad = context.createLinearGradient(0, 0, 800, 800);
+			linearGrad.addColorStop(0.0, 'red');
+			linearGrad.addColorStop(0.6, 'yellow');
+			linearGrad.addColorStop(1.0, 'blue');
+
+			context.fillStyle = linearGrad;
+			//NOTE 在填充的时候改变参数，可以不从左上往右下渐变
+			context.fillRect(0, 0, 800, 800);
+		}
+	</script>
+</head>
+<body onload="draw()">
+	<canvas id="canvas"></canvas>
+</body>
+</html>

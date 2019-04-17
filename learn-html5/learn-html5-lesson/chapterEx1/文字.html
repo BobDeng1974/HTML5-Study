@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>文字效果</title>
+	<link rel="stylesheet" href="css/style.css"/>
+	<script>
+		function draw() {
+			const canvas = document.getElementById("canvas");
+			canvas.width = 800;
+			canvas.height = 800;
+			const context = canvas.getContext("2d");
+
+			context.font = "bold 40px Arial";
+			context.lineWidth = 2;
+
+			context.fillStyle = "#058";
+			context.fillText("Welcome to China! ", 40, 100);
+
+			context.strokeSyte = "#058";
+			context.strokeText("Welcome to China! ", 40, 200);
+
+			context.fillText("Welcome to China! ", 40, 300, 200);
+			context.strokeText("Welcome to China! ", 40, 400, 200);
+
+			const linearGrad = context.createLinearGradient(0, 0, 800, 0);
+			linearGrad.addColorStop(0.0, 'red');
+			linearGrad.addColorStop(0.2, 'yellow');
+			linearGrad.addColorStop(1.0, 'blue');
+
+			context.fillStyle = linearGrad;
+			context.fillText("Welcome to China! ", 40, 500);
+		}
+	</script>
+</head>
+<body onload="draw()">
+	<canvas id="canvas"></canvas>
+</body>
+</html>

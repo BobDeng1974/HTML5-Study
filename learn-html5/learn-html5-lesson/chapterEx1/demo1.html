@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>绘制一条直线</title>
+	<link rel="stylesheet" href="css/style.css"/>
+	<script>
+		function draw() {
+			const canvas = document.getElementById("canvas");
+			canvas.width = 500;
+			canvas.height = 500;
+			const context = canvas.getContext("2d");
+
+			context.moveTo(100, 100);
+			context.lineTo(50, 250);
+
+			context.strokeStyle = "red";
+			context.stroke();
+		}
+	</script>
+</head>
+<body onload="draw()">
+	<canvas id="canvas"></canvas>
+</body>
+</html>

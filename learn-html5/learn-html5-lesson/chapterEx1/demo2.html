@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>绘制两条折线</title>
+	<link rel="stylesheet" href="css/style.css"/>
+	<script>
+		function draw() {
+			const canvas = document.getElementById("canvas");
+			canvas.width = 500;
+			canvas.height = 500;
+			const context = canvas.getContext("2d");
+
+			context.moveTo(100, 100);
+			context.lineTo(50, 250);
+			context.lineTo(100, 400);
+
+			context.lineWidth = 10;
+			context.lineCap = "round";
+			context.strokeStyle = "red";
+			context.stroke();
+		}
+	</script>
+</head>
+<body onload="draw()">
+	<canvas id="canvas"></canvas>
+</body>
+</html>

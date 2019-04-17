@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>绘制七巧板</title>
+	<link rel="stylesheet" href="css/style.css"/>
+	<script>
+		const tangram = [
+			{points: [{x: 0, y: 0}, {x: 800, y: 0}, {x: 400, y: 400}], color: "#caff67"},
+			{points: [{x: 0, y: 0}, {x: 400, y: 400}, {x: 0, y: 800}], color: "#67becf"},
+			{points: [{x: 800, y: 0}, {x: 800, y: 400}, {x: 600, y: 600}, {x: 600, y: 200}], color: "#ef3d61"},
+			{points: [{x: 600, y: 200}, {x: 600, y: 600}, {x: 400, y: 400}], color: "#f9f51a"},
+			{points: [{x: 400, y: 400}, {x: 600, y: 600}, {x: 400, y: 800}, {x: 200, y: 600}], color: "#a594c0"},
+			{points: [{x: 200, y: 600}, {x: 400, y: 800}, {x: 0, y: 800}], color: "#fa8ecc"},
+			{points: [{x: 800, y: 400}, {x: 800, y: 800}, {x: 400, y: 800}], color: "#f6ca29"}
+		];
+
+		function draw() {
+			const canvas = document.getElementById("canvas");
+			canvas.width = 800;
+			canvas.height = 800;
+			const context = canvas.getContext("2d");
+			for(let piece of tangram) {
+				drawEach(piece, context);
+			}
+		}
+
+		function drawEach(piece, context) {
+			context.beginPath();
+			let flag = true;
+			for(let point of piece.points) {
+				if(flag) {
+					context.moveTo(point.x, point.y);
+					flag = false;
+				}
+				context.lineTo(point.x, point.y);
+			}
+			context.closePath();
+
+			context.lineWidth = 3;
+			context.fillStyle = piece.color;
+
+			context.fill();
+			context.stroke();
+		}
+	</script>
+</head>
+<body onload="draw()">
+	<canvas id="canvas"></canvas>
+</body>
+</html>
