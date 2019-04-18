@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="UTF-8">
+
+	<title></title>
+</head>
+
+<body>
+	<canvas id="canvas" style="border:1px solid #aaa;display:block;margin:50px auto;">
+
+		当前浏览器不支持Canvas，请更换浏览器后再试
+	</canvas>
+
+	<script>
+		window.onload = function() {
+			var canvas = document.getElementById("canvas");
+			canvas.width = 800;
+			canvas.height = 800;
+			var context = canvas.getContext("2d");
+
+			context.fillStyle = "#EEEEFF";
+			context.fillRect(0, 0, 300, 300);
+
+			context.beginPath();
+			context.strokeStyle = "#c00";
+			context.lineWidth = 3;
+			context.arc(100, 50, 30, 0, 2 * Math.PI, true);
+			context.closePath();
+			context.fill();
+			context.stroke();
+
+
+			context.beginPath();
+			context.strokeStyle = "#c00";
+			context.lineWidth = 3;
+			context.arc(100, 50, 20, 0, Math.PI, false);
+			context.fill();
+			context.stroke();
+
+			context.beginPath();
+			context.fillStyle = "black";
+			context.arc(90, 45, 3, 0, 2 * Math.PI, true);
+			context.fill();
+			context.stroke();
+			context.moveTo(113, 45);
+			context.arc(110, 45, 3, 0, 2 * Math.PI, true);
+			context.fill();
+			context.stroke();
+
+			context.beginPath();
+			context.moveTo(100, 80);
+			context.lineTo(100, 180);
+
+			context.lineTo(75, 250);
+			context.moveTo(100, 180);
+
+			context.lineTo(125, 250);
+			context.moveTo(100, 90);
+
+			context.lineTo(75, 140);
+			context.moveTo(100, 90);
+
+			context.lineTo(125, 140);
+			context.stroke();
+			context.closePath();
+
+		}
+	</script>
+</body>
+
+</html>

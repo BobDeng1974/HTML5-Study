@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>演示不同的弧形、扇形和圆形</title>
+	<link rel="stylesheet" href="css/style.css"/>
+	<script>
+		const nullColor = "rgba(255,255,255,0)";
+
+		function getContext(canvasId = "canvas", width = "500", height = "500") {
+			const canvas = document.getElementById(canvasId);
+			canvas.width = width;
+			canvas.height = height;
+			return canvas.getContext("2d");
+		}
+
+		function setStyle(context, lineWidth, fillStyle = nullColor, strokeStyle = nullColor) {
+			context.lineWidth = lineWidth;
+			context.fillStyle = fillStyle;
+			context.strokeStyle = strokeStyle;
+		}
+
+		//anticlockwise 是否是逆时针方向
+		//doClosePath 是否绘制扇形而非弧线
+		function drawArc(context, x, y, radius, startRadian, endRadian, anticlockwise = false, doClosePath = true) {
+			context.beginPath();
+			context.arc(x, y, radius, startRadian, endRadian, anticlockwise);
+			if(doClosePath) {
+				context.closePath();
+			}
+			context.fill();
+			context.stroke();
+		}
+
+
+		function draw() {
+			const context = getContext("canvas", 1024, 768);
+
+			setStyle(context, 5, nullColor, "red");
+
+			for(let i = 0; i < 10; i++) {
+				drawArc(context, 50 + i * 100, 60, 40, 0, 2 * Math.PI * (i + 1) / 10);
+			}
+
+			for(let i = 0; i < 10; i++) {
+				drawArc(context, 50 + i * 100, 180, 40, 0, 2 * Math.PI * (i + 1) / 10, false, false);
+			}
+
+			for(let i = 0; i < 10; i++) {
+				drawArc(context, 50 + i * 100, 300, 40, 0, 2 * Math.PI * (i + 1) / 10, true);
+			}
+
+			for(let i = 0; i < 10; i++) {
+				drawArc(context, 50 + i * 100, 420, 40, 0, 2 * Math.PI * (i + 1) / 10, true, false);
+			}
+
+			setStyle(context, 5, "red", "red");
+
+			for(let i = 0; i < 10; i++) {
+				drawArc(context, 50 + i * 100, 540, 40, 0, 2 * Math.PI * (i + 1) / 10);
+			}
+
+			for(let i = 0; i < 10; i++) {
+				drawArc(context, 50 + i * 100, 660, 40, 0, 2 * Math.PI * (i + 1) / 10, true);
+			}
+		}
+	</script>
+</head>
+<body onload="draw()">
+	<canvas id="canvas"></canvas>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>绘制一个矩形</title>
+	<link rel="stylesheet" href="css/style.css"/>
+	<script>
+		function draw() {
+			const canvas = document.getElementById("canvas");
+			canvas.width = 1000;
+			canvas.height = 1000;
+			const context = canvas.getContext("2d");
+
+			drawRect(context, 100, 100, 300, 300, 10, "red", "blue");
+			drawCircle(context, 150, 150, 30, 0, 2 * Math.PI, 10, "red", "red");
+		}
+
+
+		function drawCircle(context, x, y, radius, startRadius, endRadius, lineWidth, strokeStyle, fillStyle) {
+			context.beginPath();
+			context.arc(x, y, radius, startRadius, endRadius);
+			context.closePath();
+			context.lineWidth = lineWidth;
+			context.fillStyle = fillStyle;
+			context.strokeStyle = strokeStyle;
+			context.fill();
+			context.stroke();
+		}
+
+		function drawRect(context, x, y, width, height, lineWidth, strokeStyle, fillStyle) {
+			context.beginPath();
+			context.rect(x, y, width, height);
+			context.closePath();
+			context.lineWidth = lineWidth;
+			context.fillStyle = fillStyle;
+			context.strokeStyle = strokeStyle;
+			context.fillRect(x, y, width, height);
+			context.strokeRect(x, y, width, height);
+		}
+	</script>
+</head>
+<body onload="draw()">
+	<canvas id="canvas"></canvas>
+</body>
+</html>

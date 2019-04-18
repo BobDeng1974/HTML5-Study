@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>绘制一个五角星</title>
+	<link rel="stylesheet" href="css/style.css"/>
+	<script>
+		function draw() {
+			//得到画布上下文
+			let canvas = document.getElementById("canvas");
+			canvas.width = 800;
+			canvas.height = 800;
+			let context = canvas.getContext("2d");
+
+			//绘制背景
+			context.fillStyle = "black";
+			context.fillRect(0, 0, canvas.width, canvas.height);
+
+			//设置五角星样式
+			configureStar(context, 3, "round", 0, "#fb3", "#fd5");
+
+			//遍历随机绘制五角星
+			for(let i = 0; i < 20; i++) {
+				let r = Math.random() * 5 + 5;
+				let x = Math.random() * canvas.width;
+				let y = Math.random() * canvas.height * 0.65;
+				let offsetAngle = Math.random() * 360;
+				drawStar(context, r, r / 2.0, x, y, offsetAngle);
+			}
+		}
+
+		function configureStar(context, lineWidth = 10, lineJoin = "miter", miterLimit = 20, fillStyle = "red", strokeStyle = "red") {
+			context.lineWidth = lineWidth;
+			context.lineJoin = lineJoin;
+			context.miterLimit = miterLimit;
+			context.fillStyle = fillStyle;
+			context.strokeStyle = strokeStyle;
+		}
+
+		function drawStar(context, r, R, x, y, offsetAngle = 0) {
+			context.beginPath();
+			for(let i = 0; i < 5; i++) {
+				context.lineTo(Math.cos((18 + i * 72 - offsetAngle) / 180 * Math.PI) * R + x,
+						-Math.sin((18 + i * 72 - offsetAngle) / 180 * Math.PI) * R + y);
+				context.lineTo(Math.cos((54 + i * 72 - offsetAngle) / 180 * Math.PI) * r + x,
+						-Math.sin((54 + i * 72 - offsetAngle) / 180 * Math.PI) * r + y);
+			}
+			context.closePath();
+			context.fill();
+			context.stroke();
+		}
+	</script>
+</head>
+<body onload="draw()">
+	<canvas id="canvas"></canvas>
+</body>
+</html>
