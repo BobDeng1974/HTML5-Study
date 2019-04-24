@@ -4,6 +4,10 @@
 	<meta charset="UTF-8">
 	<title>绘制七巧板</title>
 	<link rel="stylesheet" href="css/style.css"/>
+</head>
+<body onload="draw()">
+	<canvas id="canvas"></canvas>
+
 	<script>
 		const tangram = [
 			{points: [{x: 0, y: 0}, {x: 800, y: 0}, {x: 400, y: 400}], color: "#caff67"},
@@ -44,8 +48,5 @@
 			context.stroke();
 		}
 	</script>
-</head>
-<body onload="draw()">
-	<canvas id="canvas"></canvas>
 </body>
 </html>

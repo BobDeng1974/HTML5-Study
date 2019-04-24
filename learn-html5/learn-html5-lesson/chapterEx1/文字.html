@@ -11,23 +11,24 @@
 			canvas.height = 800;
 			const context = canvas.getContext("2d");
 
+			//绘制实心文本
 			context.font = "bold 40px Arial";
 			context.lineWidth = 2;
-
 			context.fillStyle = "#058";
 			context.fillText("Welcome to China! ", 40, 100);
 
+			//绘制空心文本
 			context.strokeSyte = "#058";
 			context.strokeText("Welcome to China! ", 40, 200);
 
 			context.fillText("Welcome to China! ", 40, 300, 200);
 			context.strokeText("Welcome to China! ", 40, 400, 200);
 
+			//绘制渐变文本
 			const linearGrad = context.createLinearGradient(0, 0, 800, 0);
 			linearGrad.addColorStop(0.0, 'red');
 			linearGrad.addColorStop(0.2, 'yellow');
 			linearGrad.addColorStop(1.0, 'blue');
-
 			context.fillStyle = linearGrad;
 			context.fillText("Welcome to China! ", 40, 500);
 		}

@@ -4,6 +4,10 @@
 	<meta charset="UTF-8">
 	<title>绘制一条直线</title>
 	<link rel="stylesheet" href="css/style.css"/>
+</head>
+<body onload="draw()">
+	<canvas id="canvas"></canvas>
+
 	<script>
 		function draw() {
 			const canvas = document.getElementById("canvas");
@@ -18,8 +22,5 @@
 			context.stroke();
 		}
 	</script>
-</head>
-<body onload="draw()">
-	<canvas id="canvas"></canvas>
 </body>
 </html>

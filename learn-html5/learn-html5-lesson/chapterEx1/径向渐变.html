@@ -4,6 +4,10 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>径向渐变</title>
 	<link rel="stylesheet" href="css/style.css"/>
+</head>
+<body onload="draw()">
+	<canvas id="canvas"></canvas>
+
 	<script>
 		function draw() {
 			const canvas = document.getElementById("canvas");
@@ -20,8 +24,5 @@
 			context.fillRect(0, 0, 800, 800);
 		}
 	</script>
-</head>
-<body onload="draw()">
-	<canvas id="canvas"></canvas>
 </body>
 </html>

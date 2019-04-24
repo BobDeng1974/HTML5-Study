@@ -4,6 +4,10 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>绘制一个五角星</title>
 	<link rel="stylesheet" href="css/style.css"/>
+</head>
+<body onload="draw()">
+	<canvas id="canvas"></canvas>
+
 	<script>
 		function draw() {
 			let canvas = document.getElementById("canvas");
@@ -36,8 +40,5 @@
 			context.stroke();
 		}
 	</script>
-</head>
-<body onload="draw()">
-	<canvas id="canvas"></canvas>
 </body>
 </html>
