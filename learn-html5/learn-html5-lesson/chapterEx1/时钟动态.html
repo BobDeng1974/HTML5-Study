@@ -28,6 +28,7 @@
 			//绘制外形
 
 			context.save();
+			context.beginPath();
 			context.translate(r, r);
 			context.beginPath();
 			context.lineWidth = 10;
@@ -60,6 +61,7 @@
 
 				context.fill();
 			}
+			context.closePath();
 		}
 
 		function drawHour(hour, minute) {
@@ -68,13 +70,14 @@
 			context.beginPath();
 			//走过的弧度要考虑分数
 			const rad = 2 * Math.PI / 12 * hour;
-			const mrad = 2 * Math.PI / 12 / 60 * minute;
-			context.rotate(rad + mrad);
+			const minuteRad = 2 * Math.PI / 12 / 60 * minute;
+			context.rotate(rad + minuteRad);
 			context.lineWidth = 6;
 			context.lineCap = 'round';
 			context.moveTo(0, 10);
 			context.lineTo(0, -r / 2);
 			context.stroke();
+			context.closePath();
 			//重置当前状态
 			context.restore();
 		}
@@ -89,13 +92,13 @@
 			context.moveTo(0, 10);
 			context.lineTo(0, -r + 30);
 			context.stroke();
+			context.closePath();
 			context.restore();
 		}
 
 		function drawSecond(second) {
-			context.save();
 			context.beginPath();
-			context.fillstyle = "#c14543";
+			context.save();
 			const rad = 2 * Math.PI / 60 * second;
 			context.rotate(rad);
 			//需要有一定的偏移
@@ -103,17 +106,22 @@
 			context.lineTo(2, 20);
 			context.lineTo(1, -r + 18);
 			context.lineTo(-1, -r + 18);
-			context.fill();
 			context.restore();
+			context.closePath();
+
+			context.fillstyle = "#c14543";
+			context.fill();
 		}
 
 		function drawDot() {
-			context.save();
 			context.beginPath();
-			context.fillstyle = '#11f';
+			context.save();
 			context.arc(0, 0, 3, 0, 2 * Math.PI, false);
-			context.fill();
 			context.restore();
+			context.closePath();
+
+			context.fillstyle = '#11f';
+			context.fill();
 		}
 
 		function draw() {

@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>圆形</title>
+</head>
+<body>
+  <canvas id="canvas" style="border:1px solid #aaa;display:block;margin:50px auto;"></canvas>
+
+  <script>
+    window.onload = function () {
+      let canvas = document.getElementById("canvas");
+      canvas.width = 1024;
+      canvas.height = 768;
+      let context = canvas.getContext("2d");
+
+      context.beginPath();
+      context.arc(50, 60, 40, 0, 2 * Math.PI);
+      context.lineWidth = 10;
+      context.strokeStyle = "green";
+      context.stroke();
+
+      context.beginPath();
+      context.arc(150, 180, 60, 0, 1.5 * Math.PI);
+      context.closePath();
+      context.fillStyle = "red";
+      context.strokeStyle = "green";
+      context.fill();
+      context.stroke();
+    }
+  </script>
+</body>
+</html>
