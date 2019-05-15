@@ -1,121 +1,119 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>海底世界</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>海底世界</title>
 </head>
 <script>
-	function draw() {
-		const canvas = document.getElementById("canvas");
-		canvas.width = 800;
-		canvas.height = 600;
-		const context = canvas.getContext("2d");
+  function draw() {
+    const canvas = document.getElementById("canvas");
+    canvas.width = 800;
+    canvas.height = 600;
+    const context = canvas.getContext("2d");
 
-		drawBg(context);
+    drawBg(context);
 
-		for(let x = 40; x < canvas.width - 80; x += 80) {
-			for(let y = 50; y < canvas.height - 100; y += 100) {
-				let xOffset = randomOffset(0, 20);
-				let yOffset = randomOffset(0, 20);
-				let scale = randomOffset(1, 0.2);
-				drawFish(context, x + xOffset, y + yOffset, scale);
-			}
-		}
+    for (let x = 40; x < canvas.width - 80; x += 80) {
+      for (let y = 50; y < canvas.height - 100; y += 100) {
+        let xOffset = randomOffset(0, 20);
+        let yOffset = randomOffset(0, 20);
+        let scale = randomOffset(1, 0.2);
+        drawFish(context, x + xOffset, y + yOffset, scale);
+      }
+    }
 
-		for(let x = 30; x < canvas.width; x += 60) {
-			let xOffset = randomOffset(0, 10);
-			let scaleX = randomOffset(1, 0.2);
-			let scaleY = randomOffset(1, 0.6);
-			drawSeaweed(context, x + xOffset, 600, scaleX, scaleY);
-		}
+    for (let x = 30; x < canvas.width; x += 60) {
+      let xOffset = randomOffset(0, 10);
+      let scaleX = randomOffset(1, 0.2);
+      let scaleY = randomOffset(1, 0.6);
+      drawSeaweed(context, x + xOffset, 600, scaleX, scaleY);
+    }
 
-	}
+  }
 
-	function drawBg(context) {
-		const linearGrad = context.createLinearGradient(0, 0, 0, 800);
-		linearGrad.addColorStop(0.0, '#abd5ff');
-		linearGrad.addColorStop(0.5, "#33609e");
-		linearGrad.addColorStop(0.8, '#475ce5');
+  function drawBg(context) {
+    const linearGrad = context.createLinearGradient(0, 0, 0, 800);
+    linearGrad.addColorStop(0.0, '#abd5ff');
+    linearGrad.addColorStop(0.5, "#33609e");
+    linearGrad.addColorStop(0.8, '#475ce5');
 
-		context.fillStyle = linearGrad;
-		context.fillRect(0, 0, 800, 600);
-	}
+    context.fillStyle = linearGrad;
+    context.fillRect(0, 0, 800, 600);
+  }
 
-	function drawSeaweed(context, x, y, scaleX, scaleY) {
-		context.beginPath();
-		context.lineTo(x, y);
+  function drawSeaweed(context, x, y, scaleX, scaleY) {
+    context.beginPath();
+    context.lineTo(x, y);
 
-		context.lineTo(x - 5 * scaleX, y - 30 * scaleY);
-		context.lineTo(x + 5 * scaleX, y - 50 * scaleY);
-		context.lineTo(x - 5 * scaleX, y - 70 * scaleY);
+    context.lineTo(x - 5 * scaleX, y - 30 * scaleY);
+    context.lineTo(x + 5 * scaleX, y - 50 * scaleY);
+    context.lineTo(x - 5 * scaleX, y - 70 * scaleY);
 
-		context.lineTo(x, y - 100 * scaleY);
-		context.lineTo(x + 25 * scaleX, y - 100 * scaleY);
+    context.lineTo(x, y - 100 * scaleY);
+    context.lineTo(x + 25 * scaleX, y - 100 * scaleY);
 
-		context.lineTo(x + (25 - 5) * scaleX, y - 70 * scaleY);
-		context.lineTo(x + (25 + 5) * scaleX, y - 50 * scaleY);
-		context.lineTo(x + (25 - 5) * scaleX, y - 30 * scaleY);
+    context.lineTo(x + (25 - 5) * scaleX, y - 70 * scaleY);
+    context.lineTo(x + (25 + 5) * scaleX, y - 50 * scaleY);
+    context.lineTo(x + (25 - 5) * scaleX, y - 30 * scaleY);
 
-		context.lineTo(x + 25 * scaleX, y);
-		context.lineTo(x, y);
-		context.closePath();
+    context.lineTo(x + 25 * scaleX, y);
+    context.lineTo(x, y);
+    context.closePath();
 
-		context.strokeStyle = "#26944a";
-		context.fillStyle = "#28aa58";
-		context.stroke();
-		context.fill();
-	}
+    context.strokeStyle = "#26944a";
+    context.fillStyle = "#28aa58";
+    context.stroke();
+    context.fill();
+  }
 
-	function drawFish(context, x, y, scale) {
-		context.beginPath();
+  function drawFish(context, x, y, scale) {
+    context.beginPath();
 
-		//绘制鱼头
-		context.moveTo(x, y);
-		context.lineTo(x + 30 * scale, y - 25 * scale);
-		context.lineTo(x + 30 * scale, y + 25 * scale);
-		context.lineTo(x, y);
+    //绘制鱼头
+    context.moveTo(x, y);
+    context.lineTo(x + 30 * scale, y - 25 * scale);
+    context.lineTo(x + 30 * scale, y + 25 * scale);
+    context.lineTo(x, y);
 
-		//绘制鱼尾
-		x = x + 30 * scale;
+    //绘制鱼尾
+    x = x + 30 * scale;
 
-		context.moveTo(x, y);
-		context.lineTo(x + 20 * scale, y - 15 * scale);
-		context.lineTo(x + 15 * scale, y);
-		context.lineTo(x + 20 * scale, y + 15 * scale);
-		context.lineTo(x, y);
+    context.moveTo(x, y);
+    context.lineTo(x + 20 * scale, y - 15 * scale);
+    context.lineTo(x + 15 * scale, y);
+    context.lineTo(x + 20 * scale, y + 15 * scale);
+    context.lineTo(x, y);
 
-		context.closePath();
+    context.closePath();
 
-		//填充和描边
-		context.lineWidth = 3;
-		context.strokeStyle = "#ba2e00";
-		context.fillStyle = "#eaa89d";
-		context.stroke();
-		context.fill();
+    //填充和描边
+    context.lineWidth = 3;
+    context.strokeStyle = "#ba2e00";
+    context.fillStyle = "#eaa89d";
+    context.stroke();
+    context.fill();
 
-		x = x - 15 * scale;
-		drawCircle(context, x, y, 3);
-	}
+    x = x - 15 * scale;
+    drawCircle(context, x, y, 3);
+  }
 
-	function drawCircle(context, x, y, radius) {
-		context.beginPath();
-		context.arc(x, y, radius, 0, Math.PI * 2, false);
-		context.closePath();
+  function drawCircle(context, x, y, radius) {
+    context.beginPath();
+    context.arc(x, y, radius, 0, Math.PI * 2, false);
+    context.closePath();
 
-		context.strokeStyle = "#ba2e00";
-		context.fillStyle = "#7e7975";
-		context.stroke();
-		context.fill();
+    context.strokeStyle = "#ba2e00";
+    context.fillStyle = "#7e7975";
+    context.stroke();
+    context.fill();
+  }
 
-	}
-
-
-	function randomOffset(num, offset) {
-		return Math.random() * offset * 2 + num - offset;
-	}
+  function randomOffset(num, offset) {
+    return Math.random() * offset * 2 + num - offset;
+  }
 </script>
 
 <body onload="draw()">
-	<canvas id="canvas"></canvas>
+  <canvas id="canvas"></canvas>
 </body>
 </html>
